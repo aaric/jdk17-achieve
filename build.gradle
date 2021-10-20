@@ -5,10 +5,12 @@ plugins {
 }
 
 group = "com.sample"
-version = "0.1.0-SNAPSHOT"
+version = "0.2.0-SNAPSHOT"
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     maven { url "https://maven.aliyun.com/repository/public" }
@@ -18,16 +20,20 @@ repositories {
 dependencies {
     implementation "org.slf4j:slf4j-api"
     implementation "org.slf4j:slf4j-simple"
+
+    dependencies {
+        testImplementation("org.junit.jupiter:junit-jupiter")
+    }
 }
 
 dependencyManagement {
     dependencies {
-        dependencySet(group: "org.slf4j", version: "1.7.30") {
+        dependencySet(group: "org.slf4j", version: "1.7.32") {
             entry "slf4j-api"
             entry "slf4j-simple"
         }
 
-        dependency "org.apache.commons:commons-lang3:3.10"
+        dependency "org.junit.jupiter:junit-jupiter:5.7.2"
     }
 }
 
@@ -39,6 +45,10 @@ compileJava {
 compileTestJava {
     options.encoding = "UTF-8"
     options.compilerArgs << "-Xlint:unchecked"
+}
+
+test {
+    useJUnitPlatform()
 }
 
 task removeLombokConfig() {
