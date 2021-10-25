@@ -1,4 +1,4 @@
-package com.sample.jdk17.ch01;
+package com.sample.jdk17.features;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
