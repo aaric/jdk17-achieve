@@ -1,7 +1,9 @@
 plugins {
     id "java"
+    id "java-library"
     id "io.freefair.lombok" version "6.4.3"
     id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id "de.jjohannes.extra-java-module-info" version "0.12"
 }
 
 group = "com.sample"
@@ -35,6 +37,13 @@ dependencyManagement {
 
         dependency "org.junit.jupiter:junit-jupiter:5.8.2"
         dependency "commons-beanutils:commons-beanutils:1.9.4"
+    }
+}
+
+extraJavaModuleInfo {
+    // https://docs.gradle.org/7.2/samples/sample_java_modules_with_transform.html
+    model("commons-beanutils-1.9.4.jar", "org.apache.commons.beanutils", "1.9.4") {
+        exports("org.apache.commons.beanutils")
     }
 }
 
