@@ -47,11 +47,11 @@ dependencyManagement {
 //    }
 //}
 
-jar {
-    mainfest {
-        attributes "Automatic-Module-Name": "com.sample.jdk17.features"
-    }
-}
+//jar {
+//    mainfest {
+//        attributes "Automatic-Module-Name": "com.sample.jdk17.features"
+//    }
+//}
 
 compileJava {
     options.encoding = "UTF-8"
