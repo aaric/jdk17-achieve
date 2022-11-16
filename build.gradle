@@ -1,11 +1,12 @@
 plugins {
     id "java"
-    id "io.freefair.lombok" version "6.4.3"
-    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id "io.freefair.lombok" version "6.5.1"
+    id "io.spring.dependency-management" version "1.1.0"
+    id "team.yi.semantic-gitlog" version "0.5.17"
 }
 
 group = "com.sample"
-version = "0.2.0-SNAPSHOT"
+version = "0.3.0-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -50,6 +51,36 @@ compileTestJava {
 
 test {
     useJUnitPlatform()
+}
+
+changelog {
+    toRef = "master"
+    isUnstable = true
+
+    jsonFile = file("${project.rootDir}/CHANGELOG.json")
+    fileSets = [
+            {
+                template = file("${project.rootDir}/config/gitlog/CHANGELOG.mustache")
+                target = file("${project.rootDir}/CHANGELOG.md")
+            },
+            {
+                template = file("${project.rootDir}/config/gitlog/CHANGELOG.zh-cn.mustache")
+                target = file("${project.rootDir}/CHANGELOG.zh-cn.md")
+            }
+    ]
+    commitLocales = [
+            "zh-cn": file("${project.rootDir}/config/gitlog/commit-locales.zh-cn.md")
+    ]
+}
+
+derive {
+    toRef = "master"
+    isUnstable = true
+    derivedVersionMark = "NEXT_VERSION:=="
+
+    commitLocales = [
+            "zh-cn": file("${project.rootDir}/config/gitlog/commit-locales.zh-cn.md")
+    ]
 }
 
 task removeLombokConfig() {

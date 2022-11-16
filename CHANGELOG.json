@@ -1,0 +1,19 @@
+{
+  "nextVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0,
+    "preReleaseParts" : [ ],
+    "buildMetaDataParts" : [ ],
+    "preRelease" : "",
+    "buildMetaData" : "",
+    "initialDevelopment" : true,
+    "stable" : true
+  },
+  "lastVersion" : null,
+  "tags" : [ {
+    "version" : null,
+    "releaseDate" : null,
+    "sections" : null
+  } ]
+}
