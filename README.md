@@ -9,9 +9,19 @@
 > [JDK 17 Features Learning.](https://blog.jetbrains.com/idea/2021/09/java-17-and-intellij-idea/)
 > [semantic-gitlog - Quick Start](https://semantic-gitlog.github.io/semantic-gitlog/#/zh-cn/with-gradle)
 
-## Commit types
+## 1 约定式提交规范
 
-### General
+### 1.1 基础格式
+
+```text
+<类型>([可选的作用域]): <描述>
+[可选的正文]
+[可选的脚注]
+```
+
+### 1.2 类型
+
+#### 1.2.1 基础类型
 
 |Type|Title|Emoji|Release|Description|
 |:---:|---|:---:|:---:|-----|
@@ -27,9 +37,25 @@
 |`build`|Builds|🛠|`patch`|*Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)*|
 |`ci`|Continuous Integrations|⚙|-|*Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)*|
 
-### Special
+- `feat` *类型为 `feat` 的提交表示在代码库中新增了一个功能（这和语义化版本中的 `MINOR` 相对应）。*
+- `refactor` *代码重构，既不修复错误也不添加功能。*
+- `perf` *改进性能的代码更改。*
+- `fix` *类型为 `fix` 的 提交表示在代码库中修复了一个 `bug` （这和语义化版本中的 `PATCH` 相对应）。*
+- `chore` *其他不修改 `src` 或 `test` 文件。*
+- `revert` *commit 回退。*
+- `docs` *只是更改文档。*
+- `style` *不影响代码含义的变化（空白、格式化、缺少分号等）。*
+- `test` *添加确实测试或更正现有的测试。*
+- `build` *影响构建系统或外部依赖关系的更改（示例范围：gulp、broccoli、NPM）。*
+- `ci` *更改持续集成文件和脚本（示例范围：Travis、Circle、BrowserStack、SauceLabs）。*
+
+#### 1.2.2 特殊类型
 
 |Type|Title|Release|
 |:---:|-----|:---:|
-|`BREAKING_CHANGE`|Breaking Changes| `major` |
+|`BREAKING CHANGE`|Breaking Changes|`major`|
 |`DEPRECATED`|Deprecations|follow type|
+
+### 1.3 范围
+
+*为提交类型添加一个围在圆括号内的作用域，以为其提供额外的上下文信息。例如 `feat(parser): adds ability to parse arrays.`。*
