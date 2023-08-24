@@ -44,11 +44,11 @@ public class F03RecordTests {
     @Test
     public void testFiLeHash() throws Exception {
         try(FileInputStream fis = new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")) {
-            System.err.println(DigestUtils.md5Hex(fis));
-            System.err.println(DigestUtils.sha256Hex(fis));
-            System.err.println(DigestUtils.sha256Hex(new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")));
+            log.info(DigestUtils.md5Hex(fis));
+            log.info(DigestUtils.sha256Hex(fis));
+            log.info(DigestUtils.sha256Hex(new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")));
         }catch (Exception e) {
-            System.err.println(e);
+            log.error("testFiLeHash exception", e);
         }
     }
 }
