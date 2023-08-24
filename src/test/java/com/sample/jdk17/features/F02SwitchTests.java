@@ -25,10 +25,10 @@ public class F02SwitchTests {
     public void testNow() {
         Object id = "id";
 
-        switch (id) {
-            case Integer idNum -> System.err.println(idNum);
-            case Double idStr -> System.err.println(idStr);
-            default -> System.err.println();
-        }
+//        switch (id) {
+//            case Integer idNum -> System.err.println(idNum);
+//            case Double idStr -> System.err.println(idStr);
+//            default -> System.err.println();
+//        }
     }
 }

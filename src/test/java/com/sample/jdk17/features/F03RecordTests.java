@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.jupiter.api.Test;
+
+import java.io.FileInputStream;
 
 /**
  * F03RecordTests
@@ -36,5 +39,16 @@ public class F03RecordTests {
     public void testNow() {
         NowPojo pojo = new NowPojo(1, "aaric");
         log.info("{}", pojo);
+    }
+
+    @Test
+    public void testFiLeHash() throws Exception {
+        try(FileInputStream fis = new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")) {
+            System.err.println(DigestUtils.md5Hex(fis));
+            System.err.println(DigestUtils.sha256Hex(fis));
+            System.err.println(DigestUtils.sha256Hex(new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")));
+        }catch (Exception e) {
+            System.err.println(e);
+        }
     }
 }
