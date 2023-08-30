@@ -1,5 +1,15 @@
 package com.sample.jdk17.features;
 
+import dev.samstevens.totp.code.*;
+import dev.samstevens.totp.qr.QrData;
+import dev.samstevens.totp.qr.QrGenerator;
+import dev.samstevens.totp.qr.ZxingPngQrGenerator;
+import dev.samstevens.totp.recovery.RecoveryCodeGenerator;
+import dev.samstevens.totp.secret.DefaultSecretGenerator;
+import dev.samstevens.totp.secret.SecretGenerator;
+import dev.samstevens.totp.time.NtpTimeProvider;
+import dev.samstevens.totp.time.TimeProvider;
+import dev.samstevens.totp.util.Utils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,12 +53,55 @@ public class F03RecordTests {
 
     @Test
     public void testFiLeHash() throws Exception {
-        try(FileInputStream fis = new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")) {
+        try (FileInputStream fis = new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")) {
             log.info(DigestUtils.md5Hex(fis));
             log.info(DigestUtils.sha256Hex(fis));
             log.info(DigestUtils.sha256Hex(new FileInputStream("D:\\TDDownload\\ReleaseUploadTest.zip")));
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error("testFiLeHash exception", e);
         }
+    }
+
+    @Test
+    public void testTotpServer() throws Exception {
+        // secret
+        SecretGenerator secretGenerator = new DefaultSecretGenerator();
+        String secret = secretGenerator.generate();
+        log.info("secret: {}", secret);
+        secret = "E2TQ4GVKWFGAKQRVDHZSZIUQZ4SMU675";
+
+        // secret recovery
+        RecoveryCodeGenerator recoveryCodeGenerator = new RecoveryCodeGenerator();
+        String[] codes = recoveryCodeGenerator.generateCodes(16);
+        log.info("codes:", secret);
+        for (String code : codes) {
+            log.info("\t{}", code);
+        }
+
+        // qr code
+        QrData qrData = new QrData.Builder()
+                .label("aaric")
+                .secret(secret)
+                .issuer("InCar")
+                .algorithm(HashingAlgorithm.SHA1)
+                .digits(6)
+                .period(30)
+                .build();
+
+        // qr image
+        QrGenerator qrGenerator = new ZxingPngQrGenerator();
+        byte[] qrBytes = qrGenerator.generate(qrData);
+        String qrMimeType = qrGenerator.getImageMimeType();
+        String qrDataUri = Utils.getDataUriForImage(qrBytes, qrMimeType);
+        log.info("qr uri: {}", qrDataUri);
+
+        // valid
+        //TimeProvider timeProvider = new SystemTimeProvider();
+        TimeProvider timeProvider = new NtpTimeProvider("ntp6.aliyun.com", 5000);
+        //CodeGenerator codeGenerator = new DefaultCodeGenerator(HashingAlgorithm.SHA1, 4);
+        CodeGenerator codeGenerator = new DefaultCodeGenerator();
+        CodeVerifier codeVerifier = new DefaultCodeVerifier(codeGenerator, timeProvider);
+        //log.info("valid: {}", codeVerifier.isValidCode(secret, "123456"));
+        log.info("valid: {}", codeVerifier.isValidCode(secret, "611436"));
     }
 }

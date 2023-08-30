@@ -1,10 +1,20 @@
 # Changelog
 
-## 0.3.1 (Unreleased, 2023-08-24)
+## 0.4.0 (Unreleased, 2023-08-24)
+
+### BREAKING CHANGES
+
+- update readme ([b2da45b5]())
+
 
 ### Bug Fixes
 
 - file sha256 out to log ([0733921c]())
+
+
+### Chores
+
+- update changelog ([b6b3a1e9]())
 
 
 ### Tests

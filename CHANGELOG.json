@@ -1,8 +1,8 @@
 {
   "nextVersion" : {
     "major" : 0,
-    "minor" : 3,
-    "patch" : 1,
+    "minor" : 4,
+    "patch" : 0,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
     "preRelease" : "",
@@ -25,6 +25,53 @@
     "version" : null,
     "releaseDate" : null,
     "sections" : [ {
+      "title" : "BREAKING CHANGES",
+      "commits" : [ {
+        "hashFull" : "b2da45b5e392bd9268102ecbb4565b67856638f5",
+        "hash" : "b2da45b5e392bd9",
+        "hash7" : "b2da45b",
+        "hash8" : "b2da45b5",
+        "commitTime" : "2023-08-24 18:05:48.000 +0800",
+        "commitTimeLong" : 1692871548,
+        "message" : "docs: update readme\n\ndelete some things\n\nBREAKING CHANGE: big fix\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2023-08-24 18:05:48.000 +0800",
+          "name" : "qlhan",
+          "email" : "qlhan@incarcloud.com"
+        },
+        "committerIdent" : {
+          "when" : "2023-08-24 18:05:48.000 +0800",
+          "name" : "qlhan",
+          "email" : "qlhan@incarcloud.com"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : null,
+        "commitType" : "docs",
+        "commitPackage" : null,
+        "commitScope" : null,
+        "commitSubject" : "update readme",
+        "commitBody" : "delete some things\n\nBREAKING CHANGE: big fix",
+        "attention" : false,
+        "breakingChange" : true,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitType" : "docs",
+        "localeMap" : null,
+        "rawCommitScope" : null,
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "update readme",
+        "messageBody" : "delete some things\n\nBREAKING CHANGE: big fix",
+        "messageTitle" : "docs: update readme"
+      } ]
+    }, {
       "title" : "Bug Fixes",
       "commits" : [ {
         "hashFull" : "0733921cb6522b3f7c140d062719e517de8031f4",
@@ -61,15 +108,62 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "rawCommitScope" : null,
-        "localeMap" : null,
-        "rawCommitType" : "fix",
         "commitIssue" : null,
+        "rawCommitType" : "fix",
+        "localeMap" : null,
+        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "file sha256 out to log",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "fix: file sha256 out to log",
-        "messageBody" : "test class"
+        "rawCommitSubject" : "file sha256 out to log",
+        "messageBody" : "test class",
+        "messageTitle" : "fix: file sha256 out to log"
+      } ]
+    }, {
+      "title" : "Chores",
+      "commits" : [ {
+        "hashFull" : "b6b3a1e9309b8c1eb7321f23d61bc024656e6b61",
+        "hash" : "b6b3a1e9309b8c1",
+        "hash7" : "b6b3a1e",
+        "hash8" : "b6b3a1e9",
+        "commitTime" : "2023-08-24 17:27:17.000 +0800",
+        "commitTimeLong" : 1692869237,
+        "message" : "chore: update changelog\n\nonly docs\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2023-08-24 17:27:17.000 +0800",
+          "name" : "qlhan",
+          "email" : "qlhan@incarcloud.com"
+        },
+        "committerIdent" : {
+          "when" : "2023-08-24 17:27:17.000 +0800",
+          "name" : "qlhan",
+          "email" : "qlhan@incarcloud.com"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : null,
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : null,
+        "commitSubject" : "update changelog",
+        "commitBody" : "only docs",
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitType" : "chore",
+        "localeMap" : null,
+        "rawCommitScope" : null,
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "update changelog",
+        "messageBody" : "only docs",
+        "messageTitle" : "chore: update changelog"
       } ]
     }, {
       "title" : "Tests",
@@ -108,15 +202,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "rawCommitScope" : null,
-        "localeMap" : null,
-        "rawCommitType" : "test",
         "commitIssue" : null,
+        "rawCommitType" : "test",
+        "localeMap" : null,
+        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "file sha256 test",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "test: file sha256 test",
-        "messageBody" : "test class"
+        "rawCommitSubject" : "file sha256 test",
+        "messageBody" : "test class",
+        "messageTitle" : "test: file sha256 test"
       } ]
     } ]
   }, {
@@ -169,15 +263,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "rawCommitScope" : null,
-        "localeMap" : null,
-        "rawCommitType" : "docs",
         "commitIssue" : null,
+        "rawCommitType" : "docs",
+        "localeMap" : null,
+        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "only update readme",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs: only update readme",
-        "messageBody" : ""
+        "rawCommitSubject" : "only update readme",
+        "messageBody" : "",
+        "messageTitle" : "docs: only update readme"
       } ]
     }, {
       "title" : "Build System",
@@ -216,15 +310,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "rawCommitScope" : null,
-        "localeMap" : null,
-        "rawCommitType" : "build",
         "commitIssue" : null,
+        "rawCommitType" : "build",
+        "localeMap" : null,
+        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "semantic gitlog",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "build: semantic gitlog",
-        "messageBody" : "add gitlog plugin to gradle"
+        "rawCommitSubject" : "semantic gitlog",
+        "messageBody" : "add gitlog plugin to gradle",
+        "messageTitle" : "build: semantic gitlog"
       }, {
         "hashFull" : "993b79f83ef0f4741dea0a45aeec87d358fd3f4b",
         "hash" : "993b79f83ef0f47",
@@ -260,15 +354,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "rawCommitScope" : null,
-        "localeMap" : null,
-        "rawCommitType" : "build",
         "commitIssue" : null,
+        "rawCommitType" : "build",
+        "localeMap" : null,
+        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "semantic gitlog",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "build: semantic gitlog",
-        "messageBody" : "add gitlog plugin to gradle"
+        "rawCommitSubject" : "semantic gitlog",
+        "messageBody" : "add gitlog plugin to gradle",
+        "messageTitle" : "build: semantic gitlog"
       } ]
     } ]
   } ]

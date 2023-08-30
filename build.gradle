@@ -25,6 +25,9 @@ dependencies {
     implementation "commons-beanutils:commons-beanutils"
     implementation "commons-codec:commons-codec"
 
+    implementation "commons-net:commons-net"
+    implementation "dev.samstevens.totp:totp"
+
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
@@ -38,6 +41,9 @@ dependencyManagement {
         dependency "org.junit.jupiter:junit-jupiter:5.8.2"
         dependency "commons-beanutils:commons-beanutils:1.9.4"
         dependency "commons-codec:commons-codec:1.16.0"
+
+        dependency "commons-net:commons-net:3.9.0"
+        dependency "dev.samstevens.totp:totp:1.7.1"
     }
 }
 
