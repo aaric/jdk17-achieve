@@ -8,6 +8,7 @@ import dev.samstevens.totp.recovery.RecoveryCodeGenerator;
 import dev.samstevens.totp.secret.DefaultSecretGenerator;
 import dev.samstevens.totp.secret.SecretGenerator;
 import dev.samstevens.totp.time.NtpTimeProvider;
+import dev.samstevens.totp.time.SystemTimeProvider;
 import dev.samstevens.totp.time.TimeProvider;
 import dev.samstevens.totp.util.Utils;
 import lombok.AllArgsConstructor;
@@ -64,6 +65,7 @@ public class F03RecordTests {
 
     @Test
     public void testTotpServer() throws Exception {
+        // implementation "dev.samstevens.totp:totp"
         // secret
         SecretGenerator secretGenerator = new DefaultSecretGenerator();
         String secret = secretGenerator.generate();
@@ -96,12 +98,23 @@ public class F03RecordTests {
         log.info("qr uri: {}", qrDataUri);
 
         // valid
-        //TimeProvider timeProvider = new SystemTimeProvider();
-        TimeProvider timeProvider = new NtpTimeProvider("ntp6.aliyun.com", 5000);
+        TimeProvider timeProvider = new SystemTimeProvider();
         //CodeGenerator codeGenerator = new DefaultCodeGenerator(HashingAlgorithm.SHA1, 4);
         CodeGenerator codeGenerator = new DefaultCodeGenerator();
         CodeVerifier codeVerifier = new DefaultCodeVerifier(codeGenerator, timeProvider);
         //log.info("valid: {}", codeVerifier.isValidCode(secret, "123456"));
-        log.info("valid: {}", codeVerifier.isValidCode(secret, "611436"));
+        log.info("code valid: {}", codeVerifier.isValidCode(secret, "744669"));
+    }
+
+    @Test
+    public void testTotpClient() throws Exception {
+        // implementation "commons-net:commons-net"
+        // implementation "dev.samstevens.totp:totp"
+        String secret = "E2TQ4GVKWFGAKQRVDHZSZIUQZ4SMU675";
+        int timePeriod = 30;
+        TimeProvider timeProvider = new NtpTimeProvider("ntp6.aliyun.com", 5000);
+        long counter = Math.floorDiv(timeProvider.getTime(), timePeriod);
+        CodeGenerator codeGenerator = new DefaultCodeGenerator();
+        log.info("code: {}", codeGenerator.generate(secret, counter));
     }
 }
