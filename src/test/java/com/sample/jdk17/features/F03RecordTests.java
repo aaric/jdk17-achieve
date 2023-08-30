@@ -114,6 +114,7 @@ public class F03RecordTests {
         int timePeriod = 30;
         TimeProvider timeProvider = new NtpTimeProvider("ntp6.aliyun.com", 5000);
         long counter = Math.floorDiv(timeProvider.getTime(), timePeriod);
+        log.info("counter: {}", counter);
         CodeGenerator codeGenerator = new DefaultCodeGenerator();
         log.info("code: {}", codeGenerator.generate(secret, counter));
     }
