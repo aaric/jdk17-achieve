@@ -47,9 +47,18 @@ dependencyManagement {
     }
 }
 
+// gradle myTask
+def myTask = tasks.register("myTask") {
+    doLast {
+        print("myTask done")
+    }
+}
+
 compileJava {
     options.encoding = "UTF-8"
     options.compilerArgs << "-Xlint:unchecked"
+
+    dependsOn myTask
 }
 
 compileTestJava {
