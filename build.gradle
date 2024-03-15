@@ -1,12 +1,12 @@
 plugins {
     id "java"
-    id "io.freefair.lombok" version "6.5.1"
-    id "io.spring.dependency-management" version "1.1.0"
-    id "team.yi.semantic-gitlog" version "0.5.17"
+    id "io.freefair.lombok" version "8.6"
+    id "io.spring.dependency-management" version "1.1.4"
+    id "team.yi.semantic-gitlog" version "0.6.12"
 }
 
 group = "com.sample"
-version = "0.3.0-SNAPSHOT"
+version = "0.4.0-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -28,7 +28,14 @@ dependencies {
     implementation "commons-net:commons-net"
     implementation "dev.samstevens.totp:totp"
 
+    implementation "cn.hutool:hutool-core"
+    implementation "org.mapstruct:mapstruct"
+    annotationProcessor "org.mapstruct:mapstruct-processor"
+
     testImplementation("org.junit.jupiter:junit-jupiter")
+    //testImplementation("org.hamcrest:hamcrest")
+    testImplementation("org.assertj:assertj-core")
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor"
 }
 
 dependencyManagement {
@@ -39,11 +46,18 @@ dependencyManagement {
         }
 
         dependency "org.junit.jupiter:junit-jupiter:5.8.2"
+        //dependency "org.hamcrest:hamcrest:2.2"
+        dependency "org.assertj:assertj-core:3.25.3"
+
         dependency "commons-beanutils:commons-beanutils:1.9.4"
         dependency "commons-codec:commons-codec:1.16.0"
 
         dependency "commons-net:commons-net:3.9.0"
         dependency "dev.samstevens.totp:totp:1.7.1"
+
+        dependency "cn.hutool:hutool-core:5.8.26"
+        dependency "org.mapstruct:mapstruct:1.5.5.Final"
+        dependency "org.mapstruct:mapstruct-processor:1.5.5.Final"
     }
 }
 
