@@ -1,5 +1,6 @@
 package com.sample.jdk17.features;
 
+import com.sample.jdk17.base.IBaseTests;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -8,11 +9,12 @@ import org.junit.jupiter.api.Test;
  * @author Aaric, created on 2021-10-20T17:55.
  * @version 0.2.0-SNAPSHOT
  */
-public class F02SwitchTests {
+public class F02SwitchTests implements IBaseTests {
 
     @Test
+    @Override
     public void testOrigin() {
-        Object id = "id";
+        Object id = Integer.valueOf("100");
 
         if (id instanceof Integer idNum) {
             System.err.println(idNum);
@@ -22,9 +24,16 @@ public class F02SwitchTests {
     }
 
     @Test
+    @Override
     public void testNow() {
-        Object id = "id";
+        int id = Integer.parseInt("2");
+        switch (id) {
+            case 1 -> System.err.println("One");
+            case 2 -> System.err.println("Two");
+            default -> System.err.println();
+        }
 
+//        Object id = "id";
 //        switch (id) {
 //            case Integer idNum -> System.err.println(idNum);
 //            case Double idStr -> System.err.println(idStr);

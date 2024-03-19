@@ -1,5 +1,6 @@
 package com.sample.jdk17.features;
 
+import com.sample.jdk17.base.IBaseTests;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -10,9 +11,10 @@ import org.junit.jupiter.api.Test;
  * @version 0.2.0-SNAPSHOT
  */
 @Slf4j
-public class F01InstanceOfTests {
+public class F01InstanceOfTests implements IBaseTests {
 
     @Test
+    @Override
     public void testOrigin() {
         Object obj = "hello world";
         if (obj instanceof String) {
@@ -22,6 +24,7 @@ public class F01InstanceOfTests {
     }
 
     @Test
+    @Override
     public void testNow() {
         Object obj = "hello world";
         if (obj instanceof String str) {
