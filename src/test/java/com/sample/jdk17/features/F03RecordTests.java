@@ -1,5 +1,6 @@
 package com.sample.jdk17.features;
 
+import com.sample.jdk17.base.IBaseTests;
 import dev.samstevens.totp.code.*;
 import dev.samstevens.totp.qr.QrData;
 import dev.samstevens.totp.qr.QrGenerator;
@@ -27,7 +28,7 @@ import java.io.FileInputStream;
  * @version 0.2.0-SNAPSHOT
  */
 @Slf4j
-public class F03RecordTests {
+public class F03RecordTests implements IBaseTests {
 
     @Data
     @NoArgsConstructor
@@ -38,15 +39,17 @@ public class F03RecordTests {
     }
 
     @Test
+    @Override
     public void testOrigin() {
         OriginPojo pojo = new OriginPojo(1, "aaric");
         log.info("{}", pojo);
     }
 
-    public static record NowPojo(Integer id, String name) {
+    public record NowPojo(Integer id, String name) {
     }
 
     @Test
+    @Override
     public void testNow() {
         NowPojo pojo = new NowPojo(1, "aaric");
         log.info("{}", pojo);
