@@ -33,11 +33,13 @@ public class F02SwitchTests implements IBaseTests {
             default -> System.err.println();
         }
 
-//        Object id = "id";
-//        switch (id) {
-//            case Integer idNum -> System.err.println(idNum);
-//            case Double idStr -> System.err.println(idStr);
-//            default -> System.err.println();
-//        }
+        Object idx = "id";
+        var result = switch (idx) {
+            case Integer idNum -> idNum + idNum;
+            case Double idDouble -> idDouble + idDouble;
+            case null -> 0;
+            default -> throw new RuntimeException("Unknown type");
+        };
+        System.err.println(result);
     }
 }
