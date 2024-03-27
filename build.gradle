@@ -6,7 +6,11 @@ plugins {
 }
 
 group = "com.sample"
-version = "0.6.0-SNAPSHOT"
+version = "0.7.0-SNAPSHOT"
+
+ext {
+    hutoolVersion = "5.8.26"
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -29,8 +33,12 @@ dependencies {
     implementation "dev.samstevens.totp:totp"
 
     implementation "cn.hutool:hutool-core"
+    implementation "cn.hutool:hutool-cache"
+
     implementation "org.mapstruct:mapstruct"
     annotationProcessor "org.mapstruct:mapstruct-processor"
+
+    implementation "com.github.ben-manes.caffeine:caffeine"
 
     testImplementation("org.junit.jupiter:junit-jupiter")
     //testImplementation("org.hamcrest:hamcrest")
@@ -55,9 +63,13 @@ dependencyManagement {
         dependency "commons-net:commons-net:3.9.0"
         dependency "dev.samstevens.totp:totp:1.7.1"
 
-        dependency "cn.hutool:hutool-core:5.8.26"
+        dependency "cn.hutool:hutool-core:$hutoolVersion"
+        dependency "cn.hutool:hutool-cache:$hutoolVersion"
+
         dependency "org.mapstruct:mapstruct:1.5.5.Final"
         dependency "org.mapstruct:mapstruct-processor:1.5.5.Final"
+
+        dependency "com.github.ben-manes.caffeine:caffeine:3.1.8"
     }
 }
 
