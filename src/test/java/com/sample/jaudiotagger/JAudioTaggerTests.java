@@ -88,7 +88,7 @@ public class JAudioTaggerTests {
 
     private static void updateAudioTagInfo(String filePath, String title, String artist, String album) throws Exception {
         AudioFile audioFile = AudioFileIO.read(new File(filePath));
-        Tag audioTag = audioFile.getTag();
+        Tag audioTag = audioFile.getTagOrCreateAndSetDefault();
 
         showAudioTagInfo(audioTag);
 
