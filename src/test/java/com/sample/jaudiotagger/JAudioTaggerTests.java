@@ -25,17 +25,17 @@ public class JAudioTaggerTests {
     @Test
     public void testRr() throws Exception {
         // 输出指定目录文件列表
-        String path = "E:\\VideoClipCache\\Audio\\Mp3Temp\\";
+        String path = "E:\\Lady Gaga\\";
         File[] files = new File(path).listFiles();
         if (null != files && 0 < files.length) {
             Arrays.stream(files).forEach(file -> {
                 // 输出到控制台
                 // 去除序号，例如：01 - Abracadabra.flac
-                //String[] newFileNames = file.getName().split("-");
-                //String newFileName = "Lady Gaga - " + newFileNames[1].trim();
+                String[] newFileNames = file.getName().split("-");
+                String newFileName = "Lady Gaga - " + newFileNames[1].trim();
                 // 去除序号，例如：来不及年轻就老了-常超凡.mp3
-                String[] newFileNames = file.getName().split("[-.]");
-                String newFileName = newFileNames[1].trim() + " - " + newFileNames[0].trim() + "." + newFileNames[2].trim();
+                //String[] newFileNames = file.getName().split("[-.]");
+                //String newFileName = newFileNames[1].trim() + " - " + newFileNames[0].trim() + "." + newFileNames[2].trim();
                 // 统一前缀，例如：《如何阅读一本书》 第一章 阅读的活力与艺术.mp3
                 //String newFileName = file.getName().replace("《如何阅读一本书》", "");
                 // 执行重新命名
