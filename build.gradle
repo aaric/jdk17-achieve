@@ -6,10 +6,10 @@ plugins {
 }
 
 group = "com.sample"
-version = "0.7.0-SNAPSHOT"
+version = "0.8.0-SNAPSHOT"
 
 ext {
-    hutoolVersion = "5.8.26"
+    hutoolVersion = "5.8.40"
 }
 
 java {
@@ -19,7 +19,6 @@ java {
 
 repositories {
     maven { url "https://maven.aliyun.com/repository/public" }
-    maven { url "https://repository.incarcloud.com/content/groups/public" }
 }
 
 dependencies {
@@ -46,6 +45,11 @@ dependencies {
     //testImplementation("org.hamcrest:hamcrest")
     testImplementation("org.assertj:assertj-core")
     testAnnotationProcessor "org.mapstruct:mapstruct-processor"
+
+    testImplementation "mysql:mysql-connector-java"
+    testImplementation "com.baomidou:mybatis-plus-core"
+    testImplementation "com.baomidou:mybatis-plus-generator"
+    testImplementation "org.springframework.boot:spring-boot-starter-freemarker"
 }
 
 dependencyManagement {
@@ -74,6 +78,11 @@ dependencyManagement {
         dependency "com.github.ben-manes.caffeine:caffeine:3.1.8"
 
         dependency "org.jaudiotagger:jaudiotagger:2.0.1"
+
+        dependency "mysql:mysql-connector-java:8.0.33"
+        dependency "com.baomidou:mybatis-plus-core:3.5.11"
+        dependency "com.baomidou:mybatis-plus-generator:3.5.11"
+        dependency "org.springframework.boot:spring-boot-starter-freemarker:3.4.4"
     }
 }
 
