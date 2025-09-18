@@ -18,11 +18,20 @@ public class StreamTests {
 
     @Test
     public void testStream() {
-        String[] arr = {"hello", "world"};
+        String[] arr = {"hello", "world", "", "unknown", "b_bit", "unknown"};
         Arrays.stream(arr).forEach(System.err::println);
         Arrays.asList(arr).forEach(System.err::println);
         Stream.of(arr).forEach(System.err::println);
         Stream.iterate(1, i -> i + 1).limit(10).forEach(System.err::println);
         Stream.generate(() -> new Random().nextInt(10)).limit(10).forEach(System.err::println);
+
+        Stream.of(arr).filter(s -> !s.isBlank())
+//                .peek(System.err::println);
+                .distinct()
+                .sorted()
+                .limit(1)
+                .map(s -> s.replace("_", ""))
+                .flatMap(s -> Stream.of(s.split("")))
+                .forEach(System.err::println);
     }
 }
