@@ -41,6 +41,8 @@ dependencies {
 
     implementation "org.jaudiotagger:jaudiotagger"
 
+    implementation "io.projectreactor:reactor-core"
+
     testImplementation("org.junit.jupiter:junit-jupiter")
     //testImplementation("org.hamcrest:hamcrest")
     testImplementation("org.assertj:assertj-core")
@@ -53,6 +55,10 @@ dependencies {
 }
 
 dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:2024.0.10"
+    }
+
     dependencies {
         dependencySet(group: "org.slf4j", version: "1.7.36") {
             entry "slf4j-api"
