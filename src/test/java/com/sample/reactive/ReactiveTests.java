@@ -88,4 +88,15 @@ public class ReactiveTests {
                 })
                 .subscribe(System.err::println);
     }
+
+    @SneakyThrows
+    @Test
+    public void testReactiveStream() {
+        String[] arr = {"hello", "world"};
+        Flux.fromArray(arr)
+                .flatMap(item -> Flux.fromArray(item.split("")))
+                .distinct()
+                .sort()
+                .subscribe(System.err::println);
+    }
 }
